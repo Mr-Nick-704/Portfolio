@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihal Kucheriya - Front-End Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-YT+N2bGOzPrmDGik+xAbhMvoCMJH8p0s4AlU0Xntv3Yt8RoRyBPNmIJoWjYHMRDBaC/1R7fsniYXEG3ks+N4Pg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #0a0a0a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: containerEntry 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        @keyframes containerEntry {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) rotateY(20deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotateY(0deg);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-container {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: white;
+            position: relative;
+            animation: profilePulse 3s ease-in-out infinite;
+            box-shadow: 0 0 50px rgba(255, 0, 110, 0.5);
+        }
+
+        @keyframes profilePulse {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg);
+                box-shadow: 0 0 50px rgba(255, 0, 110, 0.5);
+            }
+            50% { 
+                transform: scale(1.1) rotate(180deg);
+                box-shadow: 0 0 80px rgba(131, 56, 236, 0.8);
+            }
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: borderRotate 3s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            z-index: 10;
+            position: relative;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 400% 400%;
+        }
+
+        @keyframes titleGlow {
+            0% { 
+                text-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
+                background-position: 0% 50%;
+            }
+            100% { 
+                text-shadow: 0 0 40px rgba(131, 56, 236, 0.8);
+                background-position: 100% 50%;
+            }
+        }
+
+        .header .title {
+            font-size: 1.8rem;
+            opacity: 0.9;
+            z-index: 10;
+            position: relative;
+            animation: subtitleFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes subtitleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            z-index: 10;
+            position: relative;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: contactFloat 3s ease-in-out infinite;
+        }
+
+        .contact-item:nth-child(odd) { animation-delay: -1s; }
+        .contact-item:nth-child(even) { animation-delay: -2s; }
+
+        @keyframes contactFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.3);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+            min-height: 800px;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 0, 110, 0.1), rgba(131, 56, 236, 0.1));
+            z-index: 0;
+        }
+
+        .content {
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 5;
+            animation: sectionSlide 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes sectionSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px) rotateY(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) rotateY(0deg);
+            }
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: headingPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes headingPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .sidebar .section h2 {
+            color: #fff;
+            -webkit-text-fill-color: #fff;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+            border-radius: 2px;
+            animation: underlineGrow 2s ease-out 1s both;
+        }
+
+        @keyframes underlineGrow {
+            100% { width: 80px; }
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 20px;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .skill-item:hover::before {
+            left: 100%;
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.2);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 30px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: skillTagEntry 0.8s ease-out both;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .skill-tag:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        @keyframes skillTagEntry {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(180deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-10px) scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.4);
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #3a86ff 100%);
+            padding: 35px;
+            border-radius: 25px;
+            margin: 30px 0;
+            color: white;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            animation: projectEntry 1s ease-out both;
+        }
+
+        @keyframes projectEntry {
+            0% {
+                opacity: 0;
+                transform: rotateX(45deg) translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateX(0deg) translateY(0px);
+            }
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            animation: projectRotate 3s linear infinite paused;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+            animation-play-state: running;
+        }
+
+        .project-card:hover {
+            transform: translateY(-20px) scale(1.03) rotateX(5deg);
+            box-shadow: 0 30px 60px rgba(255, 0, 110, 0.4);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            animation: projectTitleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes projectTitleGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+        }
+
+        @keyframes projectRotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .work-experience {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            animation: workExpEntry 1.2s ease-out both;
+        }
+
+        @keyframes workExpEntry {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) rotateY(20deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotateY(0deg);
+            }
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #ff006e;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: educationSlide 1s ease-out both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes educationSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, rgba(255, 0, 110, 0.1), rgba(131, 56, 236, 0.1));
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+            transition: all 0.6s ease;
+        }
+
+        .education-item:hover::before {
+            transform: translate(20px, -20px) scale(1.2);
+        }
+
+        .education-item:hover {
+            transform: translateX(20px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.2);
+        }
+
+        .achievement-badge {
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+            color: #2c3e50;
+            padding: 20px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: achievementFloat 4s ease-in-out infinite;
+            margin: 15px 0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .achievement-badge:hover::before {
+            left: 100%;
+        }
+
+        @keyframes achievementFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(1deg); }
+            75% { transform: translateY(-5px) rotate(-1deg); }
+        }
+
+        .achievement-badge:hover {
+            transform: scale(1.15) translateY(-10px) rotate(3deg);
+            box-shadow: 0 20px 40px rgba(255, 154, 158, 0.4);
+        }
+
+        .language-item, .interest-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            margin: 10px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: itemPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes itemPulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 110, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(131, 56, 236, 0.4); }
+        }
+
+        .language-item:hover, .interest-tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 0, 110, 0.3);
+        }
+
+        /* Scroll Progress */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+            width: 0%;
+            transition: width 0.1s ease;
+            position: relative;
+        }
+
+        .scroll-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Mouse Trail Effect */
+        .cursor-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(255, 0, 110, 0.8), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                margin: 10px;
+                border-radius: 20px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: loadingFade 3s ease-in-out forwards;
+        }
+
+        .loading-text {
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+            animation: loadingPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loadingFade {
+            0%, 80% { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+
+        @keyframes loadingPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="loading-text">Loading Portfolio...</div>
+    </div>
+
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="profile-container">
+                <div class="profile-img">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+            <h1>Nihal Kucheriya</h1>
+            <p class="title">Front-End Developer Extraordinaire</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>kucheriyanihal@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8602310107</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Indore, India</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn Profile</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2><i class="fas fa-rocket"></i> Skills</h2>
+                    <div class="skill-item">
+                        <strong>Frontend Technologies</strong>
+                        <div class="skills-grid">
+                            <div class="skill-tag">Angular</div>
+                            <div class="skill-tag">TypeScript</div>
+                            <div class="skill-tag">HTML5</div>
+                            <div class="skill-tag">CSS3</div>
+                            <div class="skill-tag">JavaScript</div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Frameworks & Libraries</strong>
+                        <div class="skills-grid">
+                            <div class="skill-tag">Bootstrap</div>
+                            <div class="skill-tag">Material UI</div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Development Tools</strong>
+                        <div class="skills-grid">
+                            <div class="skill-tag">GitHub</div>
+                            <div class="skill-tag">Git</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2><i class="fas fa-trophy"></i> Achievements</h2>
+                    <div class="achievement-badge">
+                        <i class="fas fa-star"></i>
+                        <span>3 Star Coder - HackerRank</span>
+                    </div>
+                    <div class="achievement-badge">
+                        <i class="fas fa-star"></i>
+                        <span>1 Star Coder - CodeChef</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2><i class="fas fa-certificate"></i> Certificates</h2>
+                    <div class="skill-item">
+                        <strong>C Programming Mastery</strong>
+                        <p>SoloLearn & Udemy Certified (2021)</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2><i class="fas fa-language"></i> Languages</h2>
+                    <div class="language-item">
+                        <strong>Hindi</strong>
+                        <p>Native Proficiency</p>
+                    </div>
+                    <div class="language-item">
+                        <strong>English</strong>
+                        <p>Professional Proficiency</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2><i class="fas fa-heart"></i> Interests</h2>
+                    <div class="interest-tag">
+                        <i class="fas fa-globe"></i> Web Exploration
+                    </div>
+                    <div class="interest-tag">
+                        <i class="fas fa-puzzle-piece"></i> Problem Solving
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #495057;">
+                        I'm a passionate Front-End Software Developer with over 2 years of experience specializing in Angular. I've crafted impactful digital experiences through projects like Accrue, Glabol, and StudioRg, focusing on building scalable and user-friendly applications. I thrive in collaborative environments and constantly seek opportunities to push the boundaries of modern web development. With a B.Tech in Computer Science and Engineering, I'm driven by clean code, cutting-edge web technologies, and solving real-world problems through intuitive, beautiful design.
+                    </p>
+                </section>
+
+                
+<section class="section">
+    <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+
+    <div class="work-experience">
+        <h3><i class="fas fa-laptop-code"></i> Front-End Developer – StudioRg</h3>
+        <p class="work-date"><i class="far fa-calendar-alt"></i> June 2023 – Present</p>
+        <ul>
+            <li>Built responsive, dynamic Angular interfaces for live client platforms.</li>
+            <li>Improved application performance and accessibility with modular code structure.</li>
+            <li>Integrated REST APIs and real-time updates via RxJS observables.</li>
+            <li>Led UI/UX enhancements and A/B testing strategies.</li>
+        </ul>
+    </div>
+
+    <div class="work-experience">
+        <h3><i class="fas fa-globe"></i> Angular Developer – Glabol Technologies</h3>
+        <p class="work-date"><i class="far fa-calendar-alt"></i> Jan 2022 – May 2023</p>
+        <ul>
+            <li>Developed an Angular-based e-commerce PWA with offline capabilities and push notifications.</li>
+            <li>Implemented form validations, modular routing, lazy loading, and responsive design.</li>
+            <li>Managed Git repositories, code reviews, and CI/CD pipelines.</li>
+        </ul>
+    </div>
+
+    <div class="work-experience">
+        <h3><i class="fas fa-rocket"></i> Intern – Accrue Technologies</h3>
+        <p class="work-date"><i class="far fa-calendar-alt"></i> Jul 2021 – Dec 2021</p>
+        <ul>
+            <li>Contributed to internal admin dashboard with Angular and Firebase.</li>
+            <li>Worked on real-time database handling and authentication systems.</li>
+            <li>Learned agile practices, Jira, and version control workflows.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section">
+    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+
+    <div class="project-card">
+        <h3><i class="fas fa-store"></i> Glabol PWA</h3>
+        <p>Developed a scalable Progressive Web App using Angular with service worker caching, offline capabilities, and product filtering/search features.</p>
+    </div>
+
+    <div class="project-card">
+        <h3><i class="fas fa-briefcase"></i> StudioRg Portfolio</h3>
+        <p>Created a highly animated personal portfolio using HTML, CSS, and Vanilla JavaScript, featuring custom animations, cursor trails, and a responsive layout.</p>
+    </div>
+
+    <div class="project-card">
+        <h3><i class="fas fa-boxes"></i> Inventory Dashboard</h3>
+        <p>Designed and built an interactive inventory management dashboard with Angular, Chart.js, and Firebase backend integration.</p>
+    </div>
+</section>
+
+<section class="section">
+    <h2><i class="fas fa-tools"></i> Tech Stack</h2>
+    <div class="skills-grid">
+        <div class="skill-tag">Angular</div>
+        <div class="skill-tag">TypeScript</div>
+        <div class="skill-tag">JavaScript</div>
+        <div class="skill-tag">HTML5</div>
+        <div class="skill-tag">CSS3</div>
+        <div class="skill-tag">RxJS</div>
+        <div class="skill-tag">NgRx</div>
+        <div class="skill-tag">Firebase</div>
+        <div class="skill-tag">Node.js</div>
+        <div class="skill-tag">MongoDB</div>
+        <div class="skill-tag">Git & GitHub</div>
+        <div class="skill-tag">Figma</div>
+    </div>
+</section>
