@@ -235,6 +235,7 @@
             gap: 20px;
             max-width: 800px;
             margin: 0 auto;
+            margin-bottom: 25px;
             perspective: 1000px;
         }
         .skill-badge {
@@ -273,7 +274,7 @@
 
         /* --- ✨ STAGGERED ANIMATIONS --- */
         .reveal {opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;}
-        .reveal.visible {opacity: 1; transform: translateY(0);}
+        .reveal.visible {opacity: 1; transform: translateY(0);margin-top: 10px;}
         .reveal.visible h2 { transition-delay: 0.1s;}
         .reveal.visible p, .reveal.visible .experience-item { transition-delay: 0.2s;}
         .reveal.visible .project-card, .reveal.visible .skill-badge, .reveal.visible .info-card {
@@ -356,7 +357,9 @@
         <!-- ABOUT SECTION -->
         <section id="about" class="container reveal">
             <h2>About Me</h2>
-            <p>I’m a Front-End Developer with over 2 years of experience specializing in Angular. I craft impactful digital experiences like <strong>Accrue</strong>, <strong>Glabol</strong>, and <strong>StudioRg</strong>, focusing on scalable architecture and intuitive user interfaces. I thrive in collaborative environments and am driven by clean code, modern web tech, and solving real-world problems through design.</p>
+            <p>Results-driven Angular Developer with 2 years of hands-on experience in designing, developing, and
+                deploying robust web applications. Proficient in creating dynamic, responsive user interfaces and featurerich admin panels for complex systems. Proven ability to translate business requirements into high-quality,
+                scalable code and contribute effectively throughout the full software development lifecycle.</p>
         </section>
 
         <!-- EXPERIENCE SECTION -->
@@ -364,7 +367,12 @@
             <h2>Work Experience</h2>
             <div class="experience-item">
                 <h3>Front-End Developer @ Swapac Infotech PVT LTD</h3>
-                <p>For over two years, I led the development of responsive web applications using Angular, contributing to key projects like Accrue and Glabol. My focus was on optimizing performance, delivering smooth user experiences, and collaborating with cross-functional teams to bring ideas to life.</p>
+                <p>For over two years, Developed and maintained front-end architecture for multiple client projects using Angular, specializing in
+                    comprehensive admin panels.Collaborated with back-end developers to integrate RESTful APIs, ensuring seamless data flow and
+                    application functionality. Translated complex functional requirements into intuitive and efficient user interfaces, improving user
+                    experience and operational efficiency. Participated in all phases of the project lifecycle, from requirement gathering and design to development,
+                    testing, and deployment
+                    .</p>
             </div>
         </section>
 
@@ -372,9 +380,30 @@
         <section id="projects" class="container reveal">
             <h2>Featured Projects</h2>
             <div class="project-grid">
-                <div class="project-card"><h3>Accrue App</h3><p>A dynamic form creation and assignment system for efficient data collection from mobile users.</p></div>
-                <div class="project-card"><h3>Glabol App</h3><p>A multi-platform tour booking application (Web, Mobile, Admin) for seamless trip management.</p></div>
-                <div class="project-card"><h3>StudioRg</h3><p>A streamlined asset management application for accurate tracking and operational efficiency.</p></div>
+                <div class="project-card"><h3>Accrue App</h3><p>Engineered a hybrid application (iOS, Android, Web) and a powerful admin panel for dynamic survey
+                    creation and data management.
+                    Implemented core admin features for user/admin management, form building, and exporting survey
+responses to CSV, PDF, and Excel
+Enhanced the platform with subscription plans, role-based question access, and an analytics dashboard
+with interactive graphs to visualize usage data
+
+                </p></div>
+                <div class="project-card"><h3>Glabol | Tour & Travel Management System</h3><p>Developed the admin panel to manage custom and pre-planned tour packages, traveler details,
+                    bookings, and payment gateway information.
+                    Enabled administrators to have full control over the content and offerings displayed in the user-facing
+application, streamlining content updates
+                </p></div>
+                <div class="project-card"><h3>Dropworks | Music Collaboration Platform
+                </h3><p>Architected a social collaboration platform for musicians to create and share music, integrating multiple
+                    complex features into a cohesive user experience.
+                    Developed key modules including a real-time chat system for artist collaboration, a secure crypto
+                    transaction feature, and an Instagram-style feed for sharing musical content
+                    </p></div>
+                <div class="project-card"><h3>Veggigo | E-commerce & Delivery Platform
+                </h3><p>Led development of the admin panel, creating robust management systems for vendors, users, delivery
+                    partners, and orders
+                    Built a real-time reporting dashboard to track KPIs such as top-selling vendors and delivery partner
+                    efficiency, providing actionable business insights</p></div>
             </div>
         </section>
 
@@ -422,7 +451,21 @@
             <h2>Get In Touch</h2>
             <p>I'm currently available for freelance work and open to new opportunities.</p>
             <div class="footer-social-links">
-                <a href="mailto:kucheriyanihal@gmail.com" class="magnetic" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:kucheriyanihal@gmail.com" class="magnetic" aria-label="Email" onclick="copyEmailToClipboard(event)"><i class="fas fa-envelope"></i></a>
+                <div id="toast" style="display:none; position:fixed; bottom:20px; right:20px; background:#10b981; color:white; padding:10px 20px; border-radius:5px; box-shadow:0 5px 15px rgba(0,0,0,0.2);">Email copied to clipboard!</div>
+                <script>
+                    function copyEmailToClipboard(event) {
+                        event.preventDefault();
+                        const email = "kucheriyanihal@gmail.com";
+                        navigator.clipboard.writeText(email).then(() => {
+                            const toast = document.getElementById('toast');
+                            toast.style.display = 'block';
+                            setTimeout(() => {
+                                toast.style.display = 'none';
+                            }, 2000);
+                        });
+                    }
+                </script>
                 <a href="https://linkedin.com/in/nihalkucheriya" target="_blank" class="magnetic" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Nihalkucheriya" target="_blank" class="magnetic" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
