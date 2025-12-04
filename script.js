@@ -433,7 +433,7 @@ const assetImages = [
         benefits: ['Gentle exfoliation', 'Sensitive skin friendly', 'Brightens', 'Improves texture']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.31 PM.jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.31 PM (1).jpeg',
         title: 'Silk Protein Repair Mask',
         category: 'masks',
         price: '$48.99',
@@ -442,7 +442,7 @@ const assetImages = [
         benefits: ['Strengthens skin', 'Intense hydration', 'Silky smooth', 'Plumping effect']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.31 PM (1).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.31 PM (2).jpeg',
         title: 'Resveratrol Anti-Aging Serum',
         category: 'serums',
         price: '$98.99',
@@ -451,7 +451,7 @@ const assetImages = [
         benefits: ['Anti-aging', 'Antioxidant', 'Cellular renewal', 'Multiple signs targeted']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.31 PM (2).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.32 PM.jpeg',
         title: 'Oatmeal Calming Mask',
         category: 'masks',
         price: '$36.99',
@@ -460,7 +460,7 @@ const assetImages = [
         benefits: ['Calms irritation', 'Reduces inflammation', 'Soothes sensitivity', 'Relief for conditions']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.32 PM.jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.32 PM (1).jpeg',
         title: 'Growth Factor Advanced Treatment',
         category: 'treatments',
         price: '$168.99',
@@ -469,7 +469,7 @@ const assetImages = [
         benefits: ['Stimulates collagen', 'Accelerates repair', 'Anti-aging', 'Visible results']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.32 PM (1).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.32 PM.jpeg',
         title: 'Mineral Sunscreen SPF 50',
         category: 'creams',
         price: '$44.99',
