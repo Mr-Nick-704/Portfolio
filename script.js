@@ -424,7 +424,7 @@ const assetImages = [
         benefits: ['Digital protection', 'Environmental defense', 'Anti-aging', 'Screen damage protection']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.30 PM (2).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.31 PM.jpeg',
         title: 'Mandelic Acid Gentle Peel',
         category: 'treatments',
         price: '$62.99',
