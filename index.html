@@ -1,3 +1,479 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedArth - Premium Dermal Care</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 120px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 5s ease infinite;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 32px;
+            color: #666;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.3s backwards;
+        }
+
+        .hero-btn {
+            padding: 20px 50px;
+            font-size: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.6s backwards, pulse 2s infinite;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .float-item {
+            position: absolute;
+            font-size: 60px;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .float-item:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .float-item:nth-child(2) { left: 80%; top: 30%; animation-delay: 1s; }
+        .float-item:nth-child(3) { left: 20%; top: 60%; animation-delay: 2s; }
+        .float-item:nth-child(4) { left: 70%; top: 70%; animation-delay: 1.5s; }
+        .float-item:nth-child(5) { left: 50%; top: 40%; animation-delay: 0.5s; }
+        .float-item:nth-child(6) { left: 30%; top: 80%; animation-delay: 2.5s; }
+
+        /* Infinite Carousel */
+        .carousel-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+        }
+
+        .carousel-item {
+            padding: 30px 60px;
+            margin: 0 20px;
+            background: white;
+            border-radius: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+            animation: itemPulse 3s ease infinite;
+        }
+
+        /* Image Showcase Carousel */
+        .image-carousel {
+            padding: 100px 0;
+            overflow: hidden;
+            background: white;
+        }
+
+        .image-carousel h2 {
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .image-track {
+            display: flex;
+            animation: scrollImages 40s linear infinite;
+            gap: 40px;
+        }
+
+        .image-card {
+            min-width: 400px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .image-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease backwards;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        .feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .feature-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        .feature-card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 50px;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 25px;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scrollImages {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes itemPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 60px; }
+            .hero p { font-size: 20px; }
+            .image-card { min-width: 300px; height: 400px; }
+            header { padding: 15px 20px; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MedArth</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="floating-elements">
+            <div class="float-item">💧</div>
+            <div class="float-item">✨</div>
+            <div class="float-item">🌟</div>
+            <div class="float-item">💎</div>
+            <div class="float-item">🌸</div>
+            <div class="float-item">🍃</div>
+        </div>
+        <h1>MedArth</h1>
+        <p>Premium Dermal Care Solutions</p>
+        <button class="hero-btn">Discover Beauty</button>
+    </section>
+
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-item">RADIANT SKIN</div>
+            <div class="carousel-item">NATURAL GLOW</div>
+            <div class="carousel-item">DERMAL CARE</div>
+            <div class="carousel-item">PURE BEAUTY</div>
+            <div class="carousel-item">SKIN HEALTH</div>
+            <div class="carousel-item">VITALITY</div>
+            <div class="carousel-item">RADIANT SKIN</div>
+            <div class="carousel-item">NATURAL GLOW</div>
+            <div class="carousel-item">DERMAL CARE</div>
+            <div class="carousel-item">PURE BEAUTY</div>
+            <div class="carousel-item">SKIN HEALTH</div>
+            <div class="carousel-item">VITALITY</div>
+        </div>
+    </section>
+
+    <section class="image-carousel" id="products">
+        <h2>Our Collection</h2>
+        <div class="image-track">
+            <div class="image-card">🧴</div>
+            <div class="image-card">💧</div>
+            <div class="image-card">✨</div>
+            <div class="image-card">🌿</div>
+            <div class="image-card">💎</div>
+            <div class="image-card">🌸</div>
+            <div class="image-card">🧴</div>
+            <div class="image-card">💧</div>
+            <div class="image-card">✨</div>
+            <div class="image-card">🌿</div>
+            <div class="image-card">💎</div>
+            <div class="image-card">🌸</div>
+        </div>
+    </section>
+
+    <section class="features" id="about">
+        <h2>Why Choose MedArth</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔬</div>
+                <h3>Clinically Tested</h3>
+                <p>Dermatologist approved formulations for safe and effective skincare</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>100% Natural</h3>
+                <p>Plant-based ingredients sourced from nature's finest elements</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Fast Results</h3>
+                <p>Visible improvements in skin health within just 2 weeks</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💫</div>
+                <h3>Premium Quality</h3>
+                <p>Luxury dermal care products crafted with precision and care</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>MedArth</h2>
+        <p>Elevate Your Skincare Routine</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">YouTube</a>
+        </div>
+        <p style="opacity: 0.7;">© 2024 MedArth. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -350,6 +826,191 @@
             .image-card { min-width: 300px; height: 400px; }
             header { padding: 15px 20px; }
             nav { display: none; }
+        }
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 { font-size: 90px; }
+            .hero p { font-size: 28px; }
+            .image-card { min-width: 350px; height: 450px; }
+            .features h2, .image-carousel h2 { font-size: 50px; }
+        }
+
+        @media (max-width: 992px) {
+            header { padding: 15px 30px; }
+            .logo { font-size: 30px; }
+            nav a { margin: 0 15px; font-size: 14px; }
+            
+            .hero h1 { font-size: 70px; }
+            .hero p { font-size: 24px; }
+            .hero-btn { padding: 15px 40px; font-size: 18px; }
+            
+            .carousel-item { font-size: 24px; padding: 25px 50px; }
+            
+            .image-card { 
+                min-width: 320px; 
+                height: 420px; 
+                font-size: 70px;
+            }
+            
+            .features h2, .image-carousel h2 { font-size: 45px; }
+            .features { padding: 80px 40px; }
+            .features-grid { gap: 30px; }
+            .feature-card { padding: 40px; }
+            .feature-icon { font-size: 70px; }
+            .feature-card h3 { font-size: 24px; }
+            .feature-card p { font-size: 16px; }
+            
+            footer { padding: 50px 40px; }
+            footer h2 { font-size: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            header { 
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .logo { font-size: 28px; }
+            nav { 
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a { margin: 5px 10px; font-size: 13px; }
+            
+            .hero { padding: 0 20px; }
+            .hero h1 { font-size: 50px; line-height: 1.2; }
+            .hero p { font-size: 20px; }
+            .hero-btn { padding: 15px 35px; font-size: 16px; }
+            
+            .float-item { font-size: 40px; }
+            
+            .carousel-section { padding: 40px 0; }
+            .carousel-item { 
+                font-size: 20px; 
+                padding: 20px 40px; 
+                margin: 0 15px;
+            }
+            
+            .image-carousel { padding: 60px 0; }
+            .image-carousel h2 { 
+                font-size: 38px; 
+                margin-bottom: 40px;
+                padding: 0 20px;
+            }
+            .image-card { 
+                min-width: 280px; 
+                height: 360px;
+                font-size: 60px;
+                border-radius: 20px;
+            }
+            
+            .features { padding: 60px 25px; }
+            .features h2 { 
+                font-size: 38px; 
+                margin-bottom: 50px;
+            }
+            .features-grid { 
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .feature-card { 
+                padding: 35px 25px;
+                border-radius: 20px;
+            }
+            .feature-icon { font-size: 60px; margin-bottom: 20px; }
+            .feature-card h3 { font-size: 22px; margin-bottom: 12px; }
+            .feature-card p { font-size: 15px; }
+            
+            footer { padding: 40px 25px; }
+            footer h2 { font-size: 36px; }
+            footer p { font-size: 18px; }
+            .social-links { 
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .social-links a { 
+                font-size: 16px;
+                padding: 8px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 12px 15px; }
+            .logo { font-size: 24px; }
+            nav a { 
+                margin: 5px 8px; 
+                font-size: 12px;
+            }
+            
+            .hero h1 { 
+                font-size: 36px;
+                margin-bottom: 15px;
+            }
+            .hero p { 
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            .hero-btn { 
+                padding: 12px 28px; 
+                font-size: 14px;
+            }
+            
+            .float-item { font-size: 30px; }
+            
+            .carousel-item { 
+                font-size: 16px; 
+                padding: 15px 30px;
+                margin: 0 10px;
+            }
+            
+            .image-carousel { padding: 50px 0; }
+            .image-carousel h2 { 
+                font-size: 30px; 
+                margin-bottom: 30px;
+            }
+            .image-card { 
+                min-width: 240px; 
+                height: 300px;
+                font-size: 50px;
+                gap: 30px;
+            }
+            
+            .features { padding: 50px 20px; }
+            .features h2 { 
+                font-size: 30px; 
+                margin-bottom: 40px;
+            }
+            .feature-card { padding: 30px 20px; }
+            .feature-icon { font-size: 50px; }
+            .feature-card h3 { font-size: 20px; }
+            .feature-card p { font-size: 14px; }
+            
+            footer { padding: 35px 20px; }
+            footer h2 { font-size: 30px; }
+            footer p { font-size: 16px; }
+            .social-links a { 
+                font-size: 14px;
+                padding: 7px 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 14px; }
+            .hero-btn { 
+                padding: 10px 24px; 
+                font-size: 13px;
+            }
+            
+            .image-card { 
+                min-width: 200px; 
+                height: 260px;
+                font-size: 40px;
+            }
+            
+            .features h2 { font-size: 26px; }
+            .image-carousel h2 { font-size: 26px; }
         }
     </style>
 </head>
