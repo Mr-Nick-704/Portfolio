@@ -406,7 +406,7 @@ const assetImages = [
         benefits: ['Soothes irritation', 'Reduces redness', 'Hydrates', 'Post-procedure care']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.30 PM.jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.30 PM (1).jpeg',
         title: 'Vitamin F Essential Fatty Acids',
         category: 'treatments',
         price: '$72.99',
@@ -415,7 +415,7 @@ const assetImages = [
         benefits: ['Repairs barrier', 'Reduces inflammation', 'Essential lipids', 'Healthy skin function']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.30 PM (1).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.30 PM (2).jpeg',
         title: 'Blue Light Defense',
         category: 'serums',
         price: '$54.99',
