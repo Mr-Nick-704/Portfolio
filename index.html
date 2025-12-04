@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedArth - Premium Dermal Care Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo">MedArth</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#serums">Serums</a>
+            <a href="#creams">Creams</a>
+            <a href="#masks">Masks</a>
+            <a href="#treatments">Treatments</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>MedArth</h1>
+            <p class="hero-tagline">Premium Dermal Care Solutions</p>
+            <p class="hero-subtitle">Clinically-tested skincare products for radiant, healthy skin</p>
+            <button class="hero-btn">Explore Collection</button>
+        </div>
+    </section>
+
+    <!-- Infinite Text Carousel -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-item">RADIANT SKIN</div>
+            <div class="carousel-item">NATURAL GLOW</div>
+            <div class="carousel-item">DERMAL CARE</div>
+            <div class="carousel-item">PURE BEAUTY</div>
+            <div class="carousel-item">SKIN HEALTH</div>
+            <div class="carousel-item">VITALITY</div>
+            <div class="carousel-item">RADIANT SKIN</div>
+            <div class="carousel-item">NATURAL GLOW</div>
+            <div class="carousel-item">DERMAL CARE</div>
+            <div class="carousel-item">PURE BEAUTY</div>
+            <div class="carousel-item">SKIN HEALTH</div>
+            <div class="carousel-item">VITALITY</div>
+        </div>
+    </section>
+
+    <!-- Auto-Sliding Product Carousel -->
+    <section class="auto-carousel-section">
+        <h2>Featured Products</h2>
+        <div class="auto-carousel-container">
+            <div class="auto-carousel-track" id="autoCarouselTrack">
+                <!-- Products loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Serums Section -->
+    <section class="products-section" id="serums">
+        <div class="section-header">
+            <h2>Serums & Essences</h2>
+            <p>Lightweight, fast-absorbing formulas for targeted skincare (10 Products)</p>
+        </div>
+        <div class="products-grid" id="serumsGrid">
+            <!-- Products loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Creams Section -->
+    <section class="products-section" id="creams">
+        <div class="section-header">
+            <h2>Creams & Moisturizers</h2>
+            <p>Rich, nourishing moisturizers for deep hydration (7 Products)</p>
+        </div>
+        <div class="products-grid" id="creamsGrid">
+            <!-- Products loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Masks Section -->
+    <section class="products-section" id="masks">
+        <div class="section-header">
+            <h2>Face Masks & Treatments</h2>
+            <p>Intensive treatments for radiant, glowing skin (5 Products)</p>
+        </div>
+        <div class="products-grid" id="masksGrid">
+            <!-- Products loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Treatments Section -->
+    <section class="products-section" id="treatments">
+        <div class="section-header">
+            <h2>Advanced Treatments</h2>
+            <p>Professional-grade solutions for visible results (12 Products)</p>
+        </div>
+        <div class="products-grid" id="treatmentsGrid">
+            <!-- Products loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                    <div class="image-controls">
+                        <button class="control-btn" id="enhanceBtn">Enhance</button>
+                        <button class="control-btn" id="resetBtn">Reset</button>
+                        <button class="control-btn" id="downloadBtn">Download</button>
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
+                    <div class="product-meta">
+                        <span class="category" id="modalCategory"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <h2>Why Choose MedArth</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Clinically Tested</h3>
+                <p>Dermatologist approved formulations for safe and effective skincare</p>
+            </div>
+            <div class="feature-card">
+                <h3>100% Natural</h3>
+                <p>Plant-based ingredients sourced from nature's finest elements</p>
+            </div>
+            <div class="feature-card">
+                <h3>Fast Results</h3>
+                <p>Visible improvements in skin health within just 2 weeks</p>
+            </div>
+            <div class="feature-card">
+                <h3>Premium Quality</h3>
+                <p>Luxury dermal care products crafted with precision and care</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h2>MedArth</h2>
+        <p>Elevate Your Skincare Routine</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">YouTube</a>
+        </div>
+        <p style="opacity: 0.7;">&copy; 2024 MedArth. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
