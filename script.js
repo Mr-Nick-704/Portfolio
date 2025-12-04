@@ -352,7 +352,7 @@ const assetImages = [
         benefits: ['Detoxifies', 'Provides minerals', 'Balances skin', 'Purifies pores']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.28 PM.jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.28 PM (1).jpeg',
         title: 'Vitamin K Dark Circle Corrector',
         category: 'treatments',
         price: '$44.99',
@@ -361,7 +361,7 @@ const assetImages = [
         benefits: ['Reduces dark circles', 'Strengthens capillaries', 'Depuffs eyes', 'Brightens under-eyes']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.28 PM (1).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.28 PM (2).jpeg',
         title: 'Rosewater Hydration Mist',
         category: 'serums',
         price: '$34.99',
@@ -370,7 +370,7 @@ const assetImages = [
         benefits: ['Instant refreshment', 'Sets makeup', 'Hydrates', 'Antioxidant']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.28 PM (2).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.28 PM (3).jpeg',
         title: 'Probiotic Skin Balance',
         category: 'serums',
         price: '$78.99',
@@ -379,7 +379,7 @@ const assetImages = [
         benefits: ['Balances microbiome', 'Reduces inflammation', 'Strengthens barrier', 'Calms skin']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.28 PM (3).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.29 PM.jpeg',
         title: 'Coenzyme Q10 Energy Boost',
         category: 'creams',
         price: '$82.99',
@@ -388,7 +388,7 @@ const assetImages = [
         benefits: ['Boosts energy', 'Antioxidant protection', 'Anti-aging', 'Environmental defense']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.29 PM.jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.29 PM (1).jpeg',
         title: 'Zinc Control Toner',
         category: 'serums',
         price: '$38.99',
@@ -397,7 +397,7 @@ const assetImages = [
         benefits: ['Controls oil', 'Minimizes pores', 'Gentle exfoliation', 'Balances skin']
     },
     {
-        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.29 PM (1).jpeg',
+        src: 'assets/WhatsApp Image 2025-12-04 at 9.10.30 PM.jpeg',
         title: 'Aloe Vera Soothing Gel',
         category: 'creams',
         price: '$32.99',
@@ -727,7 +727,7 @@ function loadAutoCarousel() {
         const card = document.createElement('div');
         card.className = 'auto-carousel-card';
         card.innerHTML = `
-            <img src="${product.src}" alt="${product.title}" class="carousel-product-image">
+            <img src="${product.src}" alt="${product.title}" class="carousel-product-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3C/svg%3E'">
             <div class="carousel-product-info">
                 <h4>${product.title}</h4>
             </div>
@@ -741,7 +741,7 @@ function loadAutoCarousel() {
         const card = document.createElement('div');
         card.className = 'auto-carousel-card';
         card.innerHTML = `
-            <img src="${product.src}" alt="${product.title}" class="carousel-product-image">
+            <img src="${product.src}" alt="${product.title}" class="carousel-product-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3C/svg%3E'">
             <div class="carousel-product-info">
                 <h4>${product.title}</h4>
             </div>
@@ -775,7 +775,7 @@ function createProductCard(product, index) {
     
     card.innerHTML = `
         <div class="product-image-wrapper">
-            <img src="${product.src}" alt="${product.title}" class="product-image">
+            <img src="${product.src}" alt="${product.title}" class="product-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23999%22 font-size=%2214%22%3EImage Not Found%3C/text%3E%3C/svg%3E'">
             <div class="product-overlay">
                 <button class="view-btn">View Details</button>
             </div>

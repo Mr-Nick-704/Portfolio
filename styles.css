@@ -326,42 +326,110 @@ nav a:hover::before {
 footer {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 60px 50px;
+    padding: 100px 50px 50px;
     text-align: center;
+    border-top: 3px solid rgba(255, 255, 255, 0.1);
 }
 
 footer h2 {
     font-size: 48px;
-    margin-bottom: 20px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-footer p {
-    font-size: 20px;
-    margin-bottom: 30px;
+footer > p:first-of-type {
+    font-size: 18px;
+    margin-bottom: 50px;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+.contact-info {
+    margin: 50px 0;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.contact-info p {
+    margin: 0;
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.contact-info p:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.contact-info strong {
+    display: block;
+    font-size: 14px;
     opacity: 0.9;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.contact-info a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
 }
 
 .social-links {
+    margin: 60px 0 50px;
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .social-links a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    transition: all 0.3s;
-    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px 28px;
     border: 2px solid white;
-    border-radius: 25px;
+    border-radius: 50px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .social-links a:hover {
     background: white;
     color: #667eea;
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+footer > p:last-of-type {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 14px;
+    opacity: 0.8;
 }
 
 /* Animations */
