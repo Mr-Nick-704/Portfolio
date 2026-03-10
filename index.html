@@ -7,11 +7,19 @@
     <meta name="description" content="MedArth product showcase with category-led browsing, ingredient highlights, and clinical-first storytelling.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,600,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="bg-grid" aria-hidden="true"></div>
+
+    <div class="topbar" aria-label="Promotional">
+        <p>Complimentary shipping on orders over ₹999</p>
+        <div class="topbar-links">
+            <span>Shop All</span>
+            <span>870-720-900-00</span>
+        </div>
+    </div>
 
     <header class="site-header" id="top">
         <a class="brand" href="#top">
@@ -33,6 +41,7 @@
         <section class="hero" id="home" aria-label="Hero">
             <div class="hero-shell">
                 <div class="hero-left reveal">
+                    <span class="tag">Dermatologist Formulated</span>
                     <p class="eyebrow">Skin Science Showcase</p>
                     <h1>The Future of <span class="accent-italic">Derma-Care</span></h1>
                     <p class="hero-lede">Experience premium clinical formulations designed to restore your skin's natural vitality. Science-backed, routine-driven skincare for every concern.</p>
@@ -56,20 +65,15 @@
                     </div>
                 </div>
                 <div class="hero-right reveal">
-                    <div class="product-frame" id="heroMedia" role="button" tabindex="0" aria-label="Open featured product">
+                    <div class="hero-media-card" id="heroMedia" role="button" tabindex="0" aria-label="Open featured product">
                         <img id="heroProductImage" alt="Featured product" loading="eager">
-                        <div class="frame-overlay" aria-hidden="true"></div>
-                        <div class="frame-meta">
-                            <p class="frame-kicker" id="heroProductCategory"></p>
-                            <h3 class="frame-title" id="heroProductName"></h3>
-                            <p class="frame-sub" id="heroProductHeadline"></p>
-                            <div class="frame-actions">
-                                <button class="play-pill" type="button" id="heroOpenBtn">
-                                    <span class="play-dot" aria-hidden="true"></span>
-                                    View Details
-                                </button>
-                                <a class="frame-link" href="#products">Browse all</a>
+                        <div class="hero-media-bottom">
+                            <div>
+                                <p class="media-kicker" id="heroProductCategory"></p>
+                                <p class="media-title" id="heroProductName"></p>
+                                <p class="media-sub" id="heroProductHeadline"></p>
                             </div>
+                            <button class="media-play" type="button" id="heroOpenBtn" aria-label="View details"></button>
                         </div>
                     </div>
                 </div>
@@ -99,6 +103,17 @@
             </div>
             <div class="chip-row" id="chipRow" aria-label="Categories"></div>
             <div class="catalog-grid" id="catalogGrid" aria-label="Products"></div>
+        </section>
+
+        <section class="collections reveal" aria-label="Curated collections">
+            <div class="section-head">
+                <div>
+                    <p class="kicker">Curated Sets</p>
+                    <h2>Edited product stories</h2>
+                </div>
+                <p class="section-sub">Tight duos and trios with art-directed imagery for quick routine picks.</p>
+            </div>
+            <div class="collection-grid" id="collectionsGrid"></div>
         </section>
 
         <section class="science" id="science" aria-label="Science">

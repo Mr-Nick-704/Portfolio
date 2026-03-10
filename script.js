@@ -334,6 +334,7 @@ const heroProductHeadline = $("heroProductHeadline");
 const heroOpenBtn = $("heroOpenBtn");
 
 const therapyGrid = $("therapyGrid");
+const collectionsGrid = $("collectionsGrid");
 
 const siteNav = $("siteNav");
 const menuBtn = $("menuBtn");
@@ -360,6 +361,7 @@ function init() {
   renderTherapyTiles();
   renderCategoryChips();
   renderCatalog();
+  renderCollections();
   setupHeroParallax();
   setupModalEvents();
 
@@ -403,6 +405,7 @@ function setupHeroFeatured() {
   heroProductName.textContent = heroProduct.name;
   heroProductHeadline.textContent = heroProduct.headline;
 
+
   const open = () => openProductModal(heroProduct);
 
   if (heroOpenBtn) {
@@ -425,6 +428,69 @@ function setupHeroFeatured() {
 
 function pickRepresentative(category) {
   return products.find((product) => product.category === category) || products[0];
+}
+
+function renderCollections() {
+  if (!collectionsGrid) {
+    return;
+  }
+
+  const collections = [
+    {
+      title: "The Brightening Collection",
+      subtitle: "Routine designed to revive radiance and clarity.",
+      tone: "warm",
+      imageIds: [1, 22],
+      cta: "Shop now",
+      span: false
+    },
+    {
+      title: "The Hydration Duo",
+      subtitle: "Ceramide and collagen comfort for dry, sensitive skin.",
+      tone: "cool",
+      imageIds: [24, 26],
+      cta: "Shop now",
+      span: false
+    },
+    {
+      title: "The Anti-Aging Set",
+      subtitle: "Peptides and restorative actives for nighttime repair.",
+      tone: "neutral",
+      imageIds: [25, 23],
+      cta: "Shop now",
+      span: true
+    }
+  ];
+
+  const cardHtml = collections
+    .map((collection) => {
+      const images = collection.imageIds
+        .map((id) => products.find((p) => p.id === id))
+        .filter(Boolean)
+        .map(
+          (product, idx) =>
+            `<img src="${product.image}" alt="${product.name}" loading="lazy" class="shot shot-${idx + 1}">`
+        )
+        .join("");
+
+      const spanClass = collection.span ? "wide" : "";
+
+      return `
+        <article class="collection-card tone-${collection.tone} ${spanClass}">
+          <div class="collection-copy">
+            <h3>${collection.title}</h3>
+            <p>${collection.subtitle}</p>
+            <button class="btn btn-primary ghosty" data-collection="${collection.title}">${collection.cta}</button>
+          </div>
+          <div class="collection-images">
+            ${images}
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+
+  collectionsGrid.innerHTML = cardHtml;
 }
 
 function renderTherapyTiles() {
@@ -691,4 +757,3 @@ function closeProductModal() {
 }
 
 init();
-
