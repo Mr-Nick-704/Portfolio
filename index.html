@@ -3,117 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedArth | Product Experience</title>
-    <meta name="description" content="Animated MedArth showcase site with categorized products and ingredient-led storytelling.">
+    <title>MedArth | Product Showcase</title>
+    <meta name="description" content="MedArth product showcase with category-led browsing, ingredient highlights, and clinical-first storytelling.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500,600,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background-orb orb-one"></div>
-    <div class="background-orb orb-two"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
 
     <header class="site-header" id="top">
         <a class="brand" href="#top">
-            <span class="brand-mark">MedArth</span>
-            <span class="brand-sub">Product Experience</span>
+            <span class="brand-mark">medarth</span>
+            <span class="brand-sub">Dermal Care</span>
         </a>
         <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">Menu</button>
         <nav id="siteNav" class="site-nav">
-            <a href="#story">Experience</a>
-            <a href="#how">How It Works</a>
-            <a href="#catalog">Products</a>
+            <a href="#therapy">Therapy</a>
+            <a href="#products">Products</a>
+            <a href="#science">Science</a>
+            <a href="#cases">Case Studies</a>
             <a href="#contact">Contact</a>
         </nav>
+        <a class="header-cta" href="#products">Explore</a>
     </header>
 
     <main>
-        <section class="hero" id="hero">
-            <div class="hero-media" id="heroMedia">
-                <img src="assets/WhatsApp Image 2025-12-04 at 9.10.21 PM.jpeg" alt="MedArth product visual">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-content reveal">
-                <p class="kicker">Skin Science Showcase</p>
-                <h1>Built to Feel Like a Product Film, Not a Catalog</h1>
-                <p>Scroll-led storytelling, layered animation, and clear explanations of how each formulation works on skin concerns.</p>
-                <div class="hero-actions">
-                    <a href="#story" class="btn btn-solid">Start Experience</a>
-                    <a href="#catalog" class="btn btn-outline">View Products</a>
+        <section class="hero" id="home" aria-label="Hero">
+            <div class="hero-shell">
+                <div class="hero-left reveal">
+                    <p class="eyebrow">Skin Science Showcase</p>
+                    <h1>The Future of <span class="accent-italic">Derma-Care</span></h1>
+                    <p class="hero-lede">Experience premium clinical formulations designed to restore your skin's natural vitality. Science-backed, routine-driven skincare for every concern.</p>
+                    <div class="hero-actions">
+                        <a href="#products" class="btn btn-primary">Explore Collection</a>
+                        <a href="#science" class="btn btn-ghost">Our Approach</a>
+                    </div>
+                    <div class="hero-metrics" aria-label="Highlights">
+                        <div class="metric">
+                            <span class="metric-k">Doctor-led</span>
+                            <span class="metric-v">Formulations</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-k">Ingredient-first</span>
+                            <span class="metric-v">Transparency</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-k">Routine-ready</span>
+                            <span class="metric-v">Categories</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-right reveal">
+                    <div class="product-frame" id="heroMedia" role="button" tabindex="0" aria-label="Open featured product">
+                        <img id="heroProductImage" alt="Featured product" loading="eager">
+                        <div class="frame-overlay" aria-hidden="true"></div>
+                        <div class="frame-meta">
+                            <p class="frame-kicker" id="heroProductCategory"></p>
+                            <h3 class="frame-title" id="heroProductName"></h3>
+                            <p class="frame-sub" id="heroProductHeadline"></p>
+                            <div class="frame-actions">
+                                <button class="play-pill" type="button" id="heroOpenBtn">
+                                    <span class="play-dot" aria-hidden="true"></span>
+                                    View Details
+                                </button>
+                                <a class="frame-link" href="#products">Browse all</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="scroll-label">Scroll</div>
         </section>
 
-        <section class="section-intro reveal">
-            <p class="kicker">From Your Brochure</p>
-            <h2>Formulated by Doctors. Developed by Pharmacists.</h2>
-            <p>This version focuses on showcasing products, explaining mechanisms, and presenting routines with a modern, cinematic flow across mobile, tablet, and desktop screens.</p>
-        </section>
-
-        <section class="story-section" id="story">
-            <div class="story-layout">
-                <aside class="story-display">
-                    <div class="display-frame">
-                        <img id="storyImage" alt="Featured product">
-                        <div class="display-glow"></div>
-                    </div>
-                    <p class="display-category" id="storyCategory"></p>
-                    <h3 id="storyName"></h3>
-                    <p id="storyMechanism"></p>
-                    <div class="progress-dots" id="storyDots"></div>
-                </aside>
-                <div class="story-steps" id="storySteps"></div>
-            </div>
-        </section>
-
-        <section class="how-section reveal" id="how">
+        <section class="therapy reveal" id="therapy" aria-label="Targeted skin therapy">
             <div class="section-head">
                 <div>
-                    <p class="kicker">How Products Work</p>
-                    <h2>Simple Mechanism, Clear Routine</h2>
+                    <p class="kicker">Targeted Skin Therapy</p>
+                    <h2>Solutions for real concerns</h2>
+                </div>
+                <p class="section-sub">Scientifically formulated solutions designed to address diverse dermatological needs with precision and care.</p>
+            </div>
+            <div class="therapy-grid" id="therapyGrid"></div>
+        </section>
+
+        <section class="solutions reveal" id="products" aria-label="Product collection">
+            <div class="solutions-head">
+                <div>
+                    <p class="kicker">Dermatological Solutions</p>
+                    <h2>Showcase collection</h2>
+                </div>
+                <div class="solutions-tools">
+                    <input id="searchInput" class="search-input" type="search" placeholder="Search concern, ingredient, routine..." aria-label="Search products">
                 </div>
             </div>
-            <div class="how-grid">
-                <article class="how-card">
-                    <h3>1. Correct</h3>
-                    <p>Actives like kojic acid, niacinamide, azelaic acid, and vitamin C target pigmentation, marks, and acne triggers.</p>
-                </article>
-                <article class="how-card">
-                    <h3>2. Protect</h3>
-                    <p>Daily broad-spectrum sunscreen and barrier-support ingredients reduce UV stress and prevent rebound dullness.</p>
-                </article>
-                <article class="how-card">
-                    <h3>3. Repair</h3>
-                    <p>Hydration, emollients, ceramides, and recovery formulations support overnight skin comfort and resilience.</p>
-                </article>
-                <article class="how-card">
-                    <h3>4. Maintain</h3>
-                    <p>Targeted cleansers, specialty bars, and care products keep skin and scalp conditions controlled over long cycles.</p>
-                </article>
+            <div class="chip-row" id="chipRow" aria-label="Categories"></div>
+            <div class="catalog-grid" id="catalogGrid" aria-label="Products"></div>
+        </section>
+
+        <section class="science" id="science" aria-label="Science">
+            <div class="science-shell reveal">
+                <div class="science-copy">
+                    <p class="kicker kicker-on-dark">The Science of MedArth</p>
+                    <h2>Designed for clarity, efficacy, and tolerance</h2>
+                    <p class="science-lede">Each formulation starts with a simple question: what does skin need right now? We build routines around correction, protection, and recovery to support consistency.</p>
+                    <div class="science-cards">
+                        <article class="science-card">
+                            <h3>Pure ingredients</h3>
+                            <p>Clear ingredient-led rationale with routines that are easy to follow.</p>
+                        </article>
+                        <article class="science-card">
+                            <h3>Clinical intent</h3>
+                            <p>Structured actives for common concerns like acne, pigmentation, and dryness.</p>
+                        </article>
+                        <article class="science-card">
+                            <h3>Consistency</h3>
+                            <p>Simple daily steps that fit real schedules and climates.</p>
+                        </article>
+                    </div>
+                </div>
+                <div class="science-media">
+                    <div class="science-frame" aria-hidden="true">
+                        <img src="assets/lab-placeholder.svg" alt="" loading="lazy">
+                    </div>
+                    <div class="science-stats" aria-label="Science highlights">
+                        <div class="stat">
+                            <p class="stat-k">Formulation</p>
+                            <p class="stat-v">Doctor guided</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-k">Development</p>
+                            <p class="stat-v">Pharmacist built</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-k">Approach</p>
+                            <p class="stat-v">Routine first</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="catalog-section reveal" id="catalog">
-            <div class="section-head catalog-head">
-                <div>
-                    <p class="kicker">Product Showcase</p>
-                    <h2>Browse by Category</h2>
-                </div>
-                <input id="searchInput" class="search-input" type="search" placeholder="Search concern, ingredient, routine..." aria-label="Search products">
+        <section class="cases" id="cases" aria-label="Case studies">
+            <div class="section-head center reveal">
+                <p class="kicker">Clinical Efficacy</p>
+                <h2>Patient Case Studies</h2>
+                <p class="section-sub">Documented dermatological progress using guided routines and ingredient-driven products.</p>
             </div>
-            <div class="chip-row" id="chipRow"></div>
-            <div class="catalog-grid" id="catalogGrid"></div>
+            <div class="cases-layout reveal">
+                <div class="case-compare" aria-label="Before and after">
+                    <figure class="compare-card">
+                        <img src="assets/case-before.svg" alt="Before treatment placeholder" loading="lazy">
+                        <figcaption>Pre-treatment</figcaption>
+                    </figure>
+                    <figure class="compare-card">
+                        <img src="assets/case-after.svg" alt="After treatment placeholder" loading="lazy">
+                        <figcaption>Post-treatment</figcaption>
+                    </figure>
+                </div>
+                <aside class="case-quote" aria-label="Quote">
+                    <p class="quote-kicker">Observed improvement</p>
+                    <p class="quote-text">“The hydration levels are noticeably higher. My complexion looks revitalized, and skin feels more resilient against everyday stressors.”</p>
+                    <div class="quote-meta">
+                        <p class="quote-name">Patient feedback</p>
+                        <p class="quote-sub">Routine-based care cycle</p>
+                    </div>
+                </aside>
+            </div>
         </section>
     </main>
 
-    <footer class="site-footer reveal" id="contact">
-        <h2>MedArth Biotech Private Limited</h2>
-        <p>Corporate Office: Yogeshwar Apartment, Chamber No.11, First Floor, Telangkhedi Road, Ram Nagar, Nagpur, Maharashtra 440010</p>
-        <p><strong>Customer Care:</strong> <a href="tel:8120484840">8120484840</a></p>
-        <p><strong>Email:</strong> <a href="mailto:contactus.medarth@gmail.com">contactus.medarth@gmail.com</a></p>
-        <p><strong>Website:</strong> <a href="https://www.youraurasecrets.com" target="_blank" rel="noopener noreferrer">www.youraurasecrets.com</a></p>
+    <footer class="site-footer reveal" id="contact" aria-label="Footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <p class="footer-logo">medarth</p>
+                <p class="footer-note">Product showcase for dermatological solutions and ingredient-led routines.</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-head">Navigate</p>
+                <a href="#therapy">Therapy</a>
+                <a href="#products">Products</a>
+                <a href="#science">Science</a>
+                <a href="#cases">Case Studies</a>
+            </div>
+            <div class="footer-col">
+                <p class="footer-head">Company</p>
+                <p>MedArth Biotech Private Limited</p>
+                <p class="muted">Corporate Office: Yogeshwar Apartment, Chamber No.11, First Floor, Telangkhedi Road, Ram Nagar, Nagpur, Maharashtra 440010</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-head">Contact</p>
+                <a href="tel:8120484840">8120484840</a>
+                <a href="mailto:contactus.medarth@gmail.com">contactus.medarth@gmail.com</a>
+                <a href="https://www.youraurasecrets.com" target="_blank" rel="noopener noreferrer">www.youraurasecrets.com</a>
+            </div>
+        </div>
     </footer>
 
     <div class="modal" id="productModal" aria-hidden="true">
