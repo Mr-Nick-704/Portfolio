@@ -305,6 +305,42 @@ const products = [
   }
 ];
 
+// Map each product to a specific new asset (duplication only where assets < products)
+const productImageMap = {
+  1: "assets/ChatGPT Image Mar 10, 2026, 06_02_19 PM.png",
+  2: "assets/ChatGPT Image Mar 10, 2026, 06_07_10 PM.png",
+  3: "assets/ChatGPT Image Mar 10, 2026, 06_09_00 PM.png",
+  4: "assets/ChatGPT Image Mar 10, 2026, 06_11_30 PM.png",
+  5: "assets/ChatGPT Image Mar 10, 2026, 06_13_59 PM.png",
+  6: "assets/ChatGPT Image Mar 10, 2026, 06_15_29 PM.png",
+  7: "assets/Gemini_Generated_Image_1ohabq1ohabq1oha.png",
+  8: "assets/Gemini_Generated_Image_3wj7cy3wj7cy3wj7.png",
+  9: "assets/Gemini_Generated_Image_8d9gii8d9gii8d9g.png",
+  10: "assets/Gemini_Generated_Image_crxkqocrxkqocrxk.png",
+  11: "assets/Gemini_Generated_Image_doacnudoacnudoac.png",
+  12: "assets/Gemini_Generated_Image_flwzfiflwzfiflwz.png",
+  13: "assets/Gemini_Generated_Image_h0nr2lh0nr2lh0nr.png",
+  14: "assets/Gemini_Generated_Image_ju9qwpju9qwpju9q.png",
+  15: "assets/Gemini_Generated_Image_kl9in5kl9in5kl9i.png",
+  16: "assets/Gemini_Generated_Image_lefebklefebklefe.png",
+  17: "assets/Gemini_Generated_Image_nu7tmqnu7tmqnu7t.png",
+  18: "assets/Gemini_Generated_Image_oeez51oeez51oeez.png",
+  19: "assets/Gemini_Generated_Image_rqwgl5rqwgl5rqwg.png",
+  20: "assets/Gemini_Generated_Image_vyb420vyb420vyb4.png",
+  21: "assets/Gemini_Generated_Image_wb9z6twb9z6twb9z.png",
+  22: "assets/Gemini_Generated_Image_wce2ruwce2ruwce2.png",
+  23: "assets/Gemini_Generated_Image_xn6k7lxn6k7lxn6k.png",
+  24: "assets/Gemini_Generated_Image_crxkqocrxkqocrxk.png",
+  25: "assets/Gemini_Generated_Image_nu7tmqnu7tmqnu7t.png",
+  26: "assets/Gemini_Generated_Image_8d9gii8d9gii8d9g.png"
+};
+
+products.forEach((product) => {
+  if (productImageMap[product.id]) {
+    product.image = productImageMap[product.id];
+  }
+});
+
 const categoryLabels = {
   all: "All Products",
   brightening: "Brightening",
@@ -335,6 +371,7 @@ const heroOpenBtn = $("heroOpenBtn");
 
 const therapyGrid = $("therapyGrid");
 const collectionsGrid = $("collectionsGrid");
+const autoGalleryTrack = $("autoGalleryTrack");
 
 const siteNav = $("siteNav");
 const menuBtn = $("menuBtn");
@@ -358,6 +395,7 @@ function init() {
   setupMenu();
   setupRevealAnimations();
   setupHeroFeatured();
+  renderAutoGallery();
   renderTherapyTiles();
   renderCategoryChips();
   renderCatalog();
@@ -556,6 +594,26 @@ function renderTherapyTiles() {
       }
     });
   });
+}
+
+function renderAutoGallery() {
+  if (!autoGalleryTrack) {
+    return;
+  }
+
+  const galleryImages = Array.from(new Set(products.map((p) => p.image)));
+  // duplicate to enable seamless loop
+  const loopImages = [...galleryImages, ...galleryImages];
+
+  autoGalleryTrack.innerHTML = loopImages
+    .map(
+      (src) => `
+        <figure class="auto-card">
+          <img src="${src}" alt="Product imagery">
+        </figure>
+      `
+    )
+    .join("");
 }
 
 function renderCategoryChips() {
